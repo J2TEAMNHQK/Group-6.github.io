@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 6 - Lập Trình Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar cố định ở đầu trang -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🏠</span>
+                <span class="logo-text">Nhóm 6</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                <li><a href="#members" class="nav-link">Thành viên</a></li>
+                <li><a href="#about" class="nav-link">Về chúng tôi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner chính với hiệu ứng gradient và animation -->
+    <section id="home" class="banner">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1 class="banner-title">
+                <span class="title-word">Nhóm</span>
+                <span class="title-word">6</span>
+            </h1>
+            <p class="banner-subtitle">Lập Trình Web - Học Kỳ 1, 2025</p>
+            <div class="banner-description">
+                <p>Chào mừng đến với trang web của Nhóm 6!</p>
+                <p>Chúng mình là một nhóm đam mê công nghệ và sáng tạo 🚀</p>
+            </div>
+            <a href="#members" class="cta-button">
+                <span>Khám phá thành viên</span>
+                <span class="button-arrow">→</span>
+            </a>
+        </div>
+        <!-- Hiệu ứng sóng biển -->
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </section>
+
+    <!-- Phần giới thiệu nhóm -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decoration">✨</span>
+                Về Nhóm Chúng Mình
+                <span class="title-decoration">✨</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Sứ Mệnh</h3>
+                    <p>Phát triển kỹ năng lập trình web và làm việc nhóm hiệu quả</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3>Tầm Nhìn</h3>
+                    <p>Trở thành những developer chuyên nghiệp trong tương lai</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🤝</div>
+                    <h3>Giá Trị</h3>
+                    <p>Hợp tác, sáng tạo và không ngừng học hỏi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần hiển thị thành viên với grid layout -->
+    <section id="members" class="members-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decoration">🏫</span>
+                Thành Viên Nhóm
+                <span class="title-decoration">🏫</span>
+            </h2>
+            
+            <!-- Grid layout cho 5 thành viên -->
+            <div class="members-grid">
+                
+                <!-- Thành viên 1: Khải - Nhóm trưởng -->
+                <div class="member-card leader">
+                    <div class="card-badge">Nhóm trưởng</div>
+                    <a href="https://j2teamnhqk.github.io/J2TeamNHQK-Profile1.github.io/" target="_blank" class="member-link">
+                        <div class="member-image-wrapper">
+                            <img src="khai.png" alt="Nguyễn Hồ Quang Khải" class="member-image member-khai">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Xem Portfolio →</span>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Nguyễn Hồ Quang Khải</h3>
+                            <p class="member-role">🤖 AI & Machine Learning</p>
+                            <p class="member-id">MSSV: 040205000310</p>
+                            <p class="member-bio">Đam mê nghiên cứu và phát triển các giải pháp AI tiên tiến, từ Machine Learning cổ điển đến Generative AI hiện đại</p>
+                        </div>
+                    </a>
+                    <div class="card-shine"></div>
+                </div>
+
+                <!-- Thành viên 2: Nhi -->
+                <div class="member-card">
+                    <a href="https://nhitty5912.github.io/Portfolio_gki/" target="_blank" class="member-link">
+                        <div class="member-image-wrapper">
+                            <img src="nhi.png" alt="Trần Thị Yến Nhi" class="member-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Xem Portfolio →</span>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Trần Thị Yến Nhi</h3>
+                            <p class="member-role">🎨 Front-end Developer</p>
+                            <p class="member-id">MSSV: 036305005912</p>
+                            <p class="member-bio">Mong muốn trở thành Front-end Developer chuyên nghiệp, làm việc trong môi trường sáng tạo và không ngừng học hỏi các công nghệ mới</p>
+                        </div>
+                    </a>
+                    <div class="card-shine"></div>
+                </div>
+
+                <!-- Thành viên 3: Hùng -->
+                <div class="member-card">
+                    <a href="https://vanhungvn.github.io/Portfolio/" target="_blank" class="member-link">
+                        <div class="member-image-wrapper">
+                            <img src="hung.png" alt="Trần Văn Hùng" class="member-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Xem Portfolio →</span>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Trần Văn Hùng</h3>
+                            <p class="member-role">💻 Front-end Developer</p>
+                            <p class="member-id">MSSV: 052205014413</p>
+                            <p class="member-bio">I'm a passionate frontend developer who loves crafting clean, modern, and user-friendly web interfaces</p>
+                        </div>
+                    </a>
+                    <div class="card-shine"></div>
+                </div>
+
+                <!-- Thành viên 4: Lữ Vân Chuẩn -->
+                <div class="member-card">
+                    <a href="https://chunnnlv.github.io/portpolio/" target="_blank" class="member-link">
+                        <div class="member-image-wrapper">
+                            <img src="luchuan.png" alt="Lữ Vân Chuẩn" class="member-image member-chuan">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Xem Portfolio →</span>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Lữ Vân Chuẩn</h3>
+                            <p class="member-role">📊 Data Analyst</p>
+                            <p class="member-id">MSSV: 066205000740</p>
+                            <p class="member-bio">I work with data — preprocessing, analysis, visualization, and building models. Turning data into insights and solutions</p>
+                        </div>
+                    </a>
+                    <div class="card-shine"></div>
+                </div>
+
+                <!-- Thành viên 5: Phi -->
+                <div class="member-card">
+                    <a href="https://vanphi1207.github.io/Portfolio/" target="_blank" class="member-link">
+                        <div class="member-image-wrapper">
+                            <img src="phi.png" alt="Trần Vân Phi" class="member-image member-phi">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Xem Portfolio →</span>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Trần Vân Phi</h3>
+                            <p class="member-role">☕ Java Backend Developer</p>
+                            <p class="member-id">MSSV: 079205043726</p>
+                            <p class="member-bio">Passionate about Java backend development. A creative problem solver who loves learning new technologies</p>
+                        </div>
+                    </a>
+                    <div class="card-shine"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-wave"></div>
+            <p class="footer-text">
+                <span class="footer-emoji">🌊</span>
+                Nhóm 6 - Lập Trình Web © 2025
+                <span class="footer-emoji">🌊</span>
+            </p>
+            <p class="footer-subtext">Made with ❤️ by Team 6</p>
+        </div>
+    </footer>
+
+    <!-- Hiệu ứng bong bóng nổi -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
