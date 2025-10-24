@@ -1,0 +1,31 @@
+/* Css Variables */
+:root {
+  --bg-color: #000;
+  --text-color: #d4d4d4;
+  --text-muted: #999;
+  --accent-color: #ff0000;
+  --section-bg: #111;
+  --font-main: "JetBrains Mono", monospace;
+  --border-color: #222;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Default styles for body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.7;
+  font-size: 16px;
+}

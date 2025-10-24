@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chunnn — Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Portfolio" />
+
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <img src="assets/avatar.jpg" alt="Chun" class="brand-img" />
+        <div>
+          <div class="name">Chun</div>
+          <div class="role">...</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#languages">Languages</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+        </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" title="Toggle theme">🌓</button>
+        <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#languages">Languages</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left reveal">
+        <div class="avatar-glow">
+          <img src="assets\image.png" alt="Ảnh đại diện" class="avatar-img" />
+        </div>
+      </div>
+      
+      <div class="hero-right reveal">
+        <h1>Hello, I'm <span class="accent">Lữ Vân Chuẩn</span> 👋</h1>
+        <h2 class="typing"
+            data-phrases='["IT Student.","Data Analyst - Python, SQL.","Full Stack Developer - HTML, CSS, JS, C#, PHP.","Teamwork & Eager to Learn."]'>
+        </h2> 
+        
+        <p class="lede">
+          I work with data — preprocessing, analysis, visualization, and building models. 
+          Explore my projects and skills that turn data into insights and real-world solutions.
+        </p>
+        
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn outline" href="#contact">Contact Me</a>
+        </div>
+        
+        <div class="hero-meta">
+          <div><i class="fa-solid fa-location-dot"></i> Đắk Lắk, Việt Nam</div>
+          <div>
+            <i class="fa-brands fa-github"></i>
+            <a href="......" id="gh-link" target="_blank">
+              linkgit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h3 class="section-title reveal">About Me</h3>
+      
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I’m a third-year Information Technology student specializing in Data Analysis. 
+            I have experience with <strong>Python</strong> (Pandas, NumPy), <strong>SQL</strong>, — building dashboards, analyzing trends, and communicating insights effectively to non-technical audiences.
+          </p>
+          
+          <ul class="quick-info">
+            <li><i class="fa-solid fa-building-columns"></i> <strong>University:</strong> University of Transport Ho Chi Minh City (UTH)</li>
+            <li><i class="fa-solid fa-graduation-cap"></i> <strong>Education:</strong> 3rd-year IT student</li>
+            <li><i class="fa-solid fa-star"></i> <strong>GPA:</strong> 3.1</li>
+            <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> 
+              <a href="mailto:mail@">mail</a>
+            </li>
+            <li><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> 
+              <a href="tel:sdt">....</a>
+            </li>
+          </ul>
+        </div>
+        <div class="avatar-glow">
+          <img src="assets\avatar1.png" alt="Ảnh" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section alt">
+    <div class="container">
+      <h3 class="section-title reveal">Projects</h3>
+      
+      <div class="projects-grid">
+        
+        <article class="project-card reveal">
+          <div class="pc-inner">
+            <div class="pc-media">
+              <img src="assets/proj1.png" alt="App BMI (Android)" />
+            </div>
+            <div class="pc-body">
+              <h4>BMI APP (Android)</h4>
+              <p>Các trang ứng dụng BMI trên hệ điều hành Android</p>
+              <div class="pc-tags">
+                <span>Power BI</span><span>SQL</span><span>Data Viz</span>
+              </div>
+              <div class="pc-actions">
+                <a class="btn small demo" href="https://github.com/bgHann/BMI_app" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-play"></i> Views
+                </a>
+                <a class="btn small outline" href="#" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project-card reveal">
+          <div class="pc-inner">
+            <div class="pc-media">
+              <img src="assets/proj2.png" alt="" />
+            </div>
+            <div class="pc-body">
+              <h4>ChatApp</h4>
+              <p>Dự án lập trình mạng</p>
+              <div class="pc-tags">
+                <span>SQL</span><span>ETL</span>
+              </div>
+              <div class="pc-actions">
+                <a class="btn small demo" href="#" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-play"></i> Views
+                </a>
+                <a class="btn small outline" href="https://github.com/ductaip/Backend-Nestjs-ChatApp" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project-card reveal">
+          <div class="pc-inner">
+            <div class="pc-media">
+              <img src="assets/proj3.png" alt="" />
+            </div>
+            <div class="pc-body">
+              <h4>Dashboard tương tác PowerBI</h4>
+              <p>Dashboard tương tác PowerBI (Dữ liệu bán hàng).</p>
+              <div class="pc-tags">
+                <span>SQL</span><span>ETL</span>
+              </div>
+              <div class="pc-actions">
+                <a class="btn small demo" href="http://127.0.0.1:8000/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-play"></i> Views
+                </a>
+                <a class="btn small outline" href="https://github.com/chunnnlv/webpython-main" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <h3 class="section-title reveal">Skills</h3>
+      
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-brands fa-python"></i> Python</h4><span class="percent">10%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="10"></div></div>
+          <p class="skill-desc">Pandas, NumPy, Matplotlib, scikit-learn, Django</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-database"></i> SQL</h4><span class="percent">12%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="12"></div></div>
+          <p class="skill-desc">MySQL, PostgreSQL, Query optimization</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-file-excel"></i> Excel (Advanced)</h4><span class="percent">15%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="15"></div></div>
+          <p class="skill-desc">Pivot, Power Query, VBA basics</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-brands fa-html5"></i> HTML</h4><span class="percent">10%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="10"></div></div>
+          <p class="skill-desc">Semantic structure, SEO tags, Accessibility</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-brands fa-css3-alt"></i> CSS</h4><span class="percent">6%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="6"></div></div>
+          <p class="skill-desc">Flexbox, Grid, Animations, Responsive design</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-code"></i> C#</h4><span class="percent">8%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="8"></div></div>
+          <p class="skill-desc">.NET Framework, API integration, Windows Forms</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-brands fa-js"></i> JavaScript</h4><span class="percent">6%</span>
+          </div>
+          <div class="progress"><div class="progress-bar" data-percent="6"></div></div>
+          <p class="skill-desc">DOM, ES6+, Async/Await, Chart.js, APIs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="hobbies" class="section alt"> <div class="container">
+      <h3 class="section-title reveal">Hobbies</h3>
+      <div class="skills-grid"> <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-book-open-reader"></i> Reading</h4>
+          </div>
+          <p class="skill-desc">Đọc sách về công nghệ, dữ liệu và phát triển bản thân.</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-gamepad"></i> Gaming</h4>
+          </div>
+          <p class="skill-desc">Chơi các game chiến thuật và giải đố tư duy.</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-person-hiking"></i> Sports</h4>
+          </div>
+          <p class="skill-desc">Tham gia chạy bộ và bóng đá.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <section id="languages" class="section">
+    <div class="container">
+      <h3 class="section-title reveal">Languages</h3>
+      <div class="skills-grid">
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-language"></i> Vietnamese</h4>
+          </div>
+          <p class="skill-desc">Native Speaker</p>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <h4><i class="fa-solid fa-language"></i> English</h4>
+          </div>
+          <p class="skill-desc">Professional Working Proficiency (e.g., IELTS 6.5)</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <section id="certificates" class="section alt">
+    <div class="container">
+      <h3 class="section-title reveal">Certificates & Awards</h3>
+      <div class="projects-grid"> <article class="project-card reveal">
+          <div class="pc-inner">
+            <div class="pc-media">
+              <img src="assets/cert1.png" alt="Certificate 1" />
+            </div>
+            <div class="pc-body">
+              <h4>SQL for Data Science</h4>
+              <p>Minh họa không có thật</p>
+              <div class="pc-actions">
+                <a class="btn small demo" href="#" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-link"></i> View Credential
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="project-card reveal">
+          <div class="pc-inner">
+            <div class="pc-media">
+              <img src="assets/..." alt="Award 1" />
+            </div>
+            <div class="pc-body">
+              <h4>...</h4>
+              <p>...</p>
+            </div>
+          </div>
+        </article>
+        
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+  <div class="container">
+    <h3 class="section-title reveal">Contact</h3>
+    <div class="contact-grid">
+      
+      <form id="contact-form" class="contact-form reveal" novalidate>
+        <h4><i class="fa-solid fa-envelope-open-text"></i> Gửi tin nhắn cho tôi</h4>
+        
+        <div class="form-row">
+          <label for="name"><i class="fa-solid fa-user"></i> Tên</label>
+          <input id="name" name="name" type="text" placeholder="Tên bạn" required />
+        </div>
+        
+        <div class="form-row">
+          <label for="email"><i class="fa-solid fa-at"></i> Email</label>
+          <input id="email" name="email" type="email" placeholder="youremail@gmail.com" required />
+        </div>
+        
+        <div class="form-row">
+          <label for="message"><i class="fa-solid fa-comment-dots"></i> Tin nhắn</label>
+          <textarea id="message" name="message" rows="5" placeholder="Mô tả ngắn về liên hệ..." required></textarea>
+        </div>
+        
+        <div class="form-row actions">
+          <button type="submit" class="btn primary">
+            <i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn
+          </button>
+          <button type="reset" class="btn outline">
+            <i class="fa-solid fa-eraser"></i> Xóa
+          </button>
+        </div>
+        
+        <div id="form-result" class="form-result" aria-live="polite"></div>
+      </form>
+      
+      <div class="contact-info reveal">
+        <h4><i class="fa-solid fa-address-card"></i> Thông tin liên hệ</h4>
+        
+        <ul class="info-list">
+          <li><i class="fa-solid fa-envelope"></i> 
+            <a href="mailto:youremail@gmail.com">youremail@gmail.com</a>
+          </li>
+          <li><i class="fa-brands fa-linkedin"></i> 
+            <a href="#" id="li-link">linkedin.com/in/yourprofile</a>
+          </li>
+          <li><i class="fa-brands fa-github"></i> 
+            <a href="#" id="gh-link2">github.com/yourusername</a>
+          </li>
+        </ul>
+        
+        <div class="social-icons">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        
+        <div class="avatar-glow">
+          <img src="assets\image2.png" alt="Ảnh" class="avatar-img" />
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+  
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="curYear"></span>Chun</div>
+      <button id="backTop" class="icon-btn" title="Back to top">↑</button>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
