@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Cá Nhân - Trần Thị Yến Nhi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 50%, #6B8E23 100%);
+            position: relative;
+        }
+
+        /* Background đồng cỏ */
+        .grass-background {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, #2d5016 0%, #3a6b1f 50%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+         /* Cỏ động */
+         .grass-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .grass-blade {
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to top, #2d5016, #5cb85c);
+            transform-origin: bottom center;
+            animation: sway 3s ease-in-out infinite;
+            border-radius: 50% 50% 0 0;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner h1 {
+            font-size: 5.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .banner p {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            margin-top: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 15px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Container chính */
+        main {
+            position: relative;
+            z-index: 5;
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            perspective: 1000px;
+        }
+
+        /* Card container với hiệu ứng lật */
+        .card-container {
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .card-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .flip-card {
+            width: 100%;
+            min-height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            min-height: 400px;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-front img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .card-front h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-front p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .card-back {
+            background: rgba(255, 255, 255, 0.95);
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        .card-back h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .card-back p, .card-back li {
+            color: #555;
+            line-height: 1.8;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .card-back ul {
+            list-style: none;
+        }
+
+        .card-back li::before {
+            content: "✨ ";
+            margin-right: 10px;
+        }
+
+         /* Theme cho từng section */
+         .theme-sunny {
+            background: linear-gradient(135deg, #FFE5B4, #FFF8DC);
+        }
+
+        .theme-grass {
+            background: linear-gradient(135deg, #90EE90, #98FB98);
+        }
+
+        .theme-rain {
+            background: linear-gradient(135deg, #B0C4DE, #778899);
+            position: relative;
+        }
+
+        .theme-night {
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: #fff;
+        }
+
+        .theme-night h2, .theme-night p, .theme-night li {
+            color: #fff;
+        }
+
+        /* Hiệu ứng mưa */
+        .rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+            animation: fall 1s linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(400px); }
+        }
+
+        /* Mặt trời */
+        .sun {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 165, 0, 0.5);
+            animation: sunrise 10s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes sunrise {
+            0% { top: 100%; left: -10%; opacity: 0; }
+            25% { top: 20%; left: 20%; opacity: 1; }
+            75% { top: 20%; left: 70%; opacity: 1; }
+            100% { top: 100%; left: 110%; opacity: 0; }
+        }
+
+        /* Mây trôi */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+            animation: cloudMove linear infinite;
+            z-index: 2;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+        }
+
+        .cloud::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud::after {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            right: 10px;
+        }
+
+        @keyframes cloudMove {
+            from { left: -200px; }
+            to { left: 120%; }
+        }
+
+        /* Sấm sét */
+        .lightning {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 80px solid #FFD700;
+            filter: drop-shadow(0 0 10px #FFD700) brightness(1.5);
+            animation: strike 0.2s ease-out;
+            opacity: 0;
+            z-index: 3;
+        }
+
+        @keyframes strike {
+            0%, 100% { opacity: 0; }
+            10%, 30%, 50% { opacity: 1; }
+        }
+
+        /* Cầu vồng */
+        .rainbow {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            border-radius: 300px 300px 0 0;
+            border: 10px solid transparent;
+            border-top: 5px solid red;
+            box-shadow: 
+                0 -5px 0 orange,
+                0 -10px 0 yellow,
+                0 -15px 0 green,
+                0 -20px 0 blue,
+                0 -25px 0 indigo,
+                0 -30px 0 violet;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: rainbowAppear 8s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes rainbowAppear {
+            0%, 70%, 100% { opacity: 0; }
+            30%, 60% { opacity: 0.7; }
+        }
+
+        /* Sao băng */
+        .shooting-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #fff, 0 0 25px #fff;
+            animation: shoot 2.5s ease-out infinite;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-250px, 250px);
+                opacity: 0;
+            }
+        }
+
+        /* Hobby icons */
+        .hobby-item {
+            display: inline-block;
+            margin: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .hobby-item:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .hobby-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Projects */
+        .project-item {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .project-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #3498db;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background-color: #2980b9;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner h1 { font-size: 2em; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .card-front img { width: 200px; height: 200px; }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Particles */
+        .bubble, .snowflake, .particle, .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .bubble {
+            bottom: -50px;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: rise 8s linear forwards;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+        }
+
+        .snowflake {
+            top: -10px;
+            color: #fff;
+            font-size: 16px;
+            animation: snowfall 10s linear forwards;
+        }
+
+        @keyframes snowfall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .particle {
+            font-size: 20px;
+            animation: floatUp 1.5s ease-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        .firework {
+            border-radius: 50%;
+            animation: explode 1.2s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0.2); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background đồng cỏ -->
+    <div class="grass-background">
+        <div class="grass" id="grassContainer"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="banner">
+            <h1>TRẦN THỊ YẾN NHI</h1>
+            <p>Front-End Developer</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#career">Nghề nghiệp</a></li>
+                <li><a href="#hobbies">Sở thích</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section 1: Giới thiệu -->
+        <div class="card-container" id="about">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src='emages/avatar1.jpg' width='250' height='250'%3E%3Crect fill='%23e0f7fa' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='24' text-anchor='middle' dy='.3em' fill='%23555'%3EYến Nhi%3C/text%3E%3C/svg%3E" alt="Avatar">
+                    <h2>Giới thiệu</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-sunny">
+                    <div class="sun"></div>
+                    <div class="cloud" style="width: 100px; height: 40px; top: 10%; animation-duration: 25s;"></div>
+                    <div class="cloud" style="width: 120px; height: 45px; top: 25%; animation-duration: 30s; animation-delay: -10s;"></div>
+                    <h2>Thông tin cá nhân</h2>
+                    <p><strong>Họ tên:</strong> Trần Thị Yến Nhi</p>
+                    <p><strong>Ngày sinh:</strong> 19/02/2005</p>
+                    <p><strong>Giới tính:</strong> Nữ</p>
+                    <p><strong>Địa chỉ:</strong> TP. Hồ Chí Minh</p>
+                    <p><strong>Tình trạng:</strong> Độc thân</p>
+                    <p style="margin-top: 20px; font-style: italic;">
+                        "Đam mê công nghệ và sáng tạo, luôn sẵn sàng học hỏi và phát triển bản thân mỗi ngày."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Section 2: Nghề nghiệp -->
+        <div class="card-container" id="career">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src='emages/avatar3.jpg' width='250' height='250'%3E%3Crect fill='%23c8e6c9' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em'%3E💼%3C/text%3E%3C/svg%3E" alt="Career">
+                    <h2>Mục tiêu nghề nghiệp</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-grass">
+                    <div class="rainbow"></div>
+                    <div class="sun" style="animation-duration: 15s;"></div>
+                    <div class="cloud" style="width: 90px; height: 38px; top: 15%; animation-duration: 22s;"></div>
+                    <h2>Mục tiêu nghề nghiệp</h2>
+                    <p>Mong muốn trở thành Front-end Developer chuyên nghiệp, làm việc trong môi trường sáng tạo và không ngừng học hỏi các công nghệ mới như React, Vue, và UI/UX Design.</p>
+                    <p style="margin-top: 20px;"><strong>Định hướng phát triển:</strong></p>
+                    <ul>
+                        <li>Nắm vững HTML, CSS, JavaScript và các framework hiện đại</li>
+                        <li>Phát triển kỹ năng UI/UX Design</li>
+                        <li>Tham gia các dự án thực tế để tích lũy kinh nghiệm</li>
+                        <li>Đóng góp cho cộng đồng open source</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Section 3: Sở thích -->
+        <div class="card-container" id="hobbies">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src='emages/avatar4.jpg' width='250' height='250'%3E%3Crect fill='%23fff9c4' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em'%3E🎨%3C/text%3E%3C/svg%3E" alt="Hobbies">
+                    <h2>Sở thích</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-rain">
+                    <div class="rain" id="rainContainer"></div>
+                    <div class="cloud" style="width: 140px; height: 50px; top: 5%; animation-duration: 20s; background: rgba(100, 100, 100, 0.6);"></div>
+                    <div id="lightningContainer"></div>
+                    <h2>Sở thích của tôi</h2>
+                    <div style="text-align: center; margin-top: 30px; position: relative; z-index: 10;">
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🎵</span>
+                            <p>Nghe nhạc</p>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">📸</span>
+                            <p>Chụp ảnh</p>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">✈️</span>
+                            <p>Du lịch</p>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">💻</span>
+                            <p>Lập trình</p>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">📚</span>
+                            <p>Đọc sách</p>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="hobby-icon">🎮</span>
+                            <p>Chơi game</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 4: Kỹ năng -->
+        <div class="card-container" id="skills">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src='emages/avatar2.jpg' width='250' height='250'%3E%3Crect fill='%23f8bbd0' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em'%3E🚀%3C/text%3E%3C/svg%3E" alt="Skills">
+                    <h2>Ngôn ngữ & Kỹ năng</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-night">
+                    <div id="starsContainer"></div>
+                    <h2>Ngôn ngữ & Kỹ năng</h2>
+                    <div class="grid-2" style="position: relative; z-index: 10;">
+                        <div>
+                            <h3 style="margin-bottom: 15px;">Ngôn ngữ</h3>
+                            <ul>
+                                <li>Tiếng Việt: Thành thạo</li>
+                                <li>Tiếng Anh: Trung bình</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 15px;">Kỹ năng</h3>
+                            <ul>
+                                <li>HTML / CSS / JavaScript</li>
+                                <li>Responsive Design</li>
+                                <li>Git & GitHub</li>
+                                <li>Thiết kế giao diện web</li>
+                                <li>Làm việc nhóm</li>
+                                <li>Tư duy logic & sáng tạo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Section 5: Dự án -->
+        <div class="card-container" id="projects">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src='emages/avatar3.jpg' width='250' height='250'%3E%3Crect fill='%23b39ddb' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em'%3E⚡%3C/text%3E%3C/svg%3E" alt="Projects">
+                    <h2>Dự án cá nhân</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-sunny">
+                    <div class="sun" style="animation-duration: 12s;"></div>
+                    <div class="cloud" style="width: 110px; height: 42px; top: 15%; animation-duration: 28s;"></div>
+                    <div class="rainbow" style="animation-delay: 5s;"></div>
+                    <h2>Dự án cá nhân</h2>
+                    
+                    <div class="project-item">
+                        <strong>🌟 Portfolio Website</strong>
+                        <p>Thiết kế trang giới thiệu cá nhân bằng HTML, CSS, JS với nhiều hiệu ứng động.</p>
+                        <a href="#" target="_blank">Xem demo →</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong>📝 Mini Blog</strong>
+                        <p>Xây dựng blog cá nhân với chức năng đăng bài, tìm kiếm và quản lý bài viết.</p>
+                        <a href="#" target="_blank">Xem demo →</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong>🌤️ Weather App</strong>
+                        <p>Ứng dụng xem thời tiết sử dụng API, hiển thị thông tin thời tiết chi tiết theo thành phố.</p>
+                        <a href="#" target="_blank">Xem demo →</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong>✅ To-Do List Manager</strong>
+                        <p>Ứng dụng quản lý công việc với tính năng thêm, sửa, xóa và đánh dấu hoàn thành.</p>
+                        <a href="#" target="_blank">Xem demo →</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong>🎨 Interactive Landing Page</strong>
+                        <p>Trang landing page với hiệu ứng scroll animation và thiết kế responsive hiện đại.</p>
+                        <a href="#" target="_blank">Xem demo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Liên hệ -->
+        <div class="card-container" id="contact">
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face card-front">
+                    <img src= 'emages/avatar4.jpg'width='250' height='250'%3E%3Crect fill='%2380deea' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em'%3E📱%3C/text%3E%3C/svg%3E" alt="Contact">
+                    <h2>Liên hệ</h2>
+                    <p>Click để xem chi tiết</p>
+                </div>
+                <div class="card-face card-back theme-grass">
+                    <div class="sun"></div>
+                    <div class="cloud" style="width: 90px; height: 38px; top: 20%; animation-duration: 22s;"></div>
+                    <div class="rainbow" style="animation-delay: 3s;"></div>
+                    <h2>Thông tin liên hệ</h2>
+                    <div style="position: relative; z-index: 10;">
+                        <p style="font-size: 1.2em; margin: 20px 0;">
+                            📧 Email: <a href="mailto:nhitran19022005@gmail.com" style="color: #2980b9;">nhitran19022005@gmail.com</a>
+                        </p>
+                        <p style="font-size: 1.2em; margin: 20px 0;">
+                            🌐 GitHub: <a href="https://github.com/nhitty5912" target="_blank" style="color: #2980b9;">github.com/nhitty5912</a>
+                        </p>
+                        <p style="font-size: 1.2em; margin: 20px 0;">
+                            📘 Facebook: <a href="https://facebook.com/nhitty.05" target="_blank" style="color: #2980b9;">facebook.com/nhitty.05</a>
+                        </p>
+                        <p style="font-size: 1.2em; margin: 20px 0;">
+                            📸 Instagram: <a href="https://instagram.com/yennhi" target="_blank" style="color: #2980b9;">@yennhi</a>
+                        </p>
+                        <div style="margin-top: 40px; padding: 20px; background: rgba(255, 255, 255, 0.7); border-radius: 15px; border-left: 5px solid #27ae60;">
+                            <p style="font-style: italic; color: #2c3e50; font-size: 1.1em;">
+                                💬 "Hãy liên hệ với tôi nếu bạn có bất kỳ câu hỏi nào hoặc muốn hợp tác trong các dự án thú vị! Tôi luôn sẵn sàng lắng nghe và học hỏi từ mọi người."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#" class="back-to-top">↑ Top</a>
+
+    <footer>
+        <p style ="font-size: 1.2em; margin-bottom: 10px;">© 2025 Trần Thị Yến Nhi | Designed with ❤️</p>
+        <p style="opacity: 0.8; margin-top: 10px; font-size: 0.95em;">✨ "Đam mê sáng tạo - Khát khao học hỏi" ✨</p>
+    </footer>
+
+    <script>
+        // Tạo cỏ
+        const grassContainer = document.getElementById('grassContainer');
+        for (let i = 0; i < 150; i++) {
+            const blade = document.createElement('div');
+            blade.className = 'grass-blade';
+            blade.style.left = `${Math.random() * 100}%`;
+            blade.style.height = `${Math.random() * 100 + 100}px`;
+            blade.style.animationDelay = `${Math.random() * 0.5}s`;
+            grassContainer.appendChild(blade);
+        }
+
+        // Hiệu ứng mưa
+        const rainContainer = document.getElementById('rainContainer');
+        if (rainContainer) {
+            setInterval(() => {
+                const drop = document.createElement('div');
+                drop.className = 'raindrop';
+                drop.style.left = `${Math.random() * 100}%`;
+                drop.style.animationDuration = `${Math.random() * 0.5 + 0.5}s`;
+                rainContainer.appendChild(drop);
+                setTimeout(() => drop.remove(), 5000);
+            }, 100);
+        }
+         // Hiệu ứng sấm sét
+         const lightningContainer = document.getElementById('lightningContainer');
+        if (lightningContainer) {
+            setInterval(() => {
+                const lightning = document.createElement('div');
+                lightning.className = 'lightning';
+                lightning.style.left = `${Math.random() * 80 + 10}%`;
+                lightning.style.top = '0';
+                lightningContainer.appendChild(lightning);
+                setTimeout(() => lightning.remove(), 300);
+            }, 3000 + Math.random() * 4000);
+        }
+        // Sao băng
+        const starsContainer = document.getElementById('starsContainer');
+        if (starsContainer) {
+            // Thêm sao cố định
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = '2px';
+                star.style.height = '2px';
+                star.style.background = '#fff';
+                star.style.borderRadius = '50%';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.boxShadow = '0 0 3px #fff';
+                star.style.opacity = Math.random() * 0.5 + 0.5;
+                starsContainer.appendChild(star);
+            }
+
+            // Sao băng
+            setInterval(() => {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                shootingStar.style.left = `${Math.random() * 100}%`;
+                shootingStar.style.top = `${Math.random() * 50}%`;
+                shootingStar.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(shootingStar);
+                setTimeout(() => shootingStar.remove(), 2500);
+            }, 1500);
+        }
+
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card-container').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Bong bóng bay
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 40 + 10;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+            const colors = ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#F15BB5','#9B5DE5','#FF9F1C'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            bubble.style.background = color;
+            bubble.style.boxShadow = `0 0 15px ${color}`;
+            document.body.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 8000);
+        }
+        setInterval(createBubble, 300);
+
+        // Tuyết rơi
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.fontSize = `${Math.random() * 12 + 10}px`;
+            snowflake.style.opacity = Math.random();
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 10000);
+        }
+        setInterval(createSnowflake, 400);
+
+        /* ======= HOA / TIM THEO CHUỘT ======= */
+    document.addEventListener('mousemove', (e) => {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const emojis = ['💖', '🌸', '💐', '💞', '🌼', '🌷'];
+      particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      particle.style.left = `${e.clientX}px`;
+      particle.style.top = `${e.clientY}px`;
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 1500);
+    });
+
+        // Pháo hoa
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            const size = Math.random() * 20 + 10;
+            firework.style.width = `${size}px`;
+            firework.style.height = `${size}px`;
+            firework.style.left = `${Math.random() * 100}vw`;
+            firework.style.top = `${Math.random() * 80}vh`;
+            const colors = ['#ff0000','#00ffcc','#ffff00','#ff66cc','#00ccff','#ff9933'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.background = color;
+            firework.style.boxShadow = `0 0 20px ${color}`;
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1200);
+        }
+        setInterval(createFirework, 2000);
+
+        // Hiệu ứng Hello ban đầu
+        window.addEventListener('load', () => {
+            const hello = document.createElement('div');
+            hello.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.5);
+                font-size: 25vw;
+                color: rgba(255, 255, 255, 0.8);
+                font-weight: bold;
+                text-align: center;
+                pointer-events: none;
+                z-index: 99999;
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            `;
+            hello.textContent = 'Hello';
+            document.body.appendChild(hello);
+
+            let opacity = 0;
+            let scale = 0.5;
+            const interval = setInterval(() => {
+                opacity += 0.02;
+                scale += 0.015;
+                hello.style.opacity = opacity > 1 ? 2 - opacity : opacity;
+                hello.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                
+                if (opacity >= 2) {
+                    clearInterval(interval);
+                    hello.remove();
+                }
+            }, 30);
+        });
+    </script>
+</body>
+</html>
